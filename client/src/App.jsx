@@ -27,17 +27,27 @@ export default function App() {
 const AppGrid = styled.div`
   display: grid;
   grid-template-rows: 45px auto 45px;
+  height:100vh;
 `
 const AppHeader = styled.header`
   height: 45px;
-  background: #ff00ff;
+  background: #a8cca8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 `
 const ContentMain = styled.main`
-  height:100%;
+  height: calc(100vh - 90px);
   overflow-y:scroll;
+  padding:0 20px;
+  background:#e8f2e8;
 `
 const RecipeListing = styled.section`
   display: grid;
+  grid-gap:20px;
   grid-template-columns: repeat(2, 1fr);
 `
 const FooterNav = styled.footer`

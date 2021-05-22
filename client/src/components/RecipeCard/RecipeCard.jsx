@@ -15,6 +15,7 @@ export default function RecipeCard({recipeData, ...props}){
       <RecipeImage>
         <img src={"./images/" + imageFile} alt=""></img>
       </RecipeImage>
+      <RecipeContent>
       <h2>{title}</h2>
       <h3>{subtitle}</h3>
       <h4>Zutaten</h4>
@@ -46,6 +47,7 @@ export default function RecipeCard({recipeData, ...props}){
         <li>{preheat ? 'ja' : 'nein'}</li>
         <li>{mode}</li>
       </ul>
+      </RecipeContent>
     </RecipeCardWrap>
   )
 
@@ -57,7 +59,10 @@ export default function RecipeCard({recipeData, ...props}){
 }
 
 const RecipeCardWrap = styled.article`
-  border: 1px solid #ff00ff;
+  /* border: 1px solid #ff00ff; */
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden;
 `
 
 const RecipeImage = styled.figure`
@@ -72,4 +77,7 @@ const RecipeImage = styled.figure`
     width: 100%;
     height: auto;
   }
+`
+const RecipeContent = styled.div`
+  padding: 10px 25px;
 `
