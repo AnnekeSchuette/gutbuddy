@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro'
 import RecipeCard from './components/RecipeCard/RecipeCard'
-import recipeData from "./data/recipes"
+import recipeData from "./assets/data/recipes"
 
 export default function App() {
   const recipes = recipeData.map((recipe)=> (
-    <RecipeCard recipeData={recipe} key={recipe.title} />
+    <RecipeCard recipeData={recipe} key={(recipe.title).replace(/\s/g, "")} />
   ))
   return (
     <AppGrid>
@@ -13,7 +13,9 @@ export default function App() {
       </AppHeader>
       <ContentMain>
         <p>huhu!</p>
-        {recipes}
+        <RecipeListing>
+          {recipes}
+        </RecipeListing>
       </ContentMain>
       <FooterNav>
         Bye
@@ -33,8 +35,10 @@ const AppHeader = styled.header`
 const ContentMain = styled.main`
   height:100%;
   overflow-y:scroll;
+`
+const RecipeListing = styled.section`
   display: grid;
-  grid-template-columns: repeat(1fr, 4);
+  grid-template-columns: repeat(2, 1fr);
 `
 const FooterNav = styled.footer`
   height: 45px;

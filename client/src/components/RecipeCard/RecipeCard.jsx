@@ -1,23 +1,25 @@
 import styled from 'styled-components/macro'
 
 export default function RecipeCard({recipeData, ...props}){
-  const { title, subtitle, ingredients, additional, preparationSteps} = recipeData
+  const { title, subtitle, imageFile, ingredients, additional, preparationSteps} = recipeData
   const [{temperature}, {unit}, {preheat}, {mode}] = recipeData.oven
   /* const ingredients = recipeData.ingredients
   const preparationSteps = recipeData.preparationSteps
   const additional = recipeData.additional
   const categories = recipeData.categories
   const tags = recipeData.tags */
+  //const imgPath = `./images/${imageFile}`
 
   return (
     <RecipeCardWrap {...props}>
+      <RecipeImage>
+        <img src={"./images/" + imageFile} alt=""></img>
+      </RecipeImage>
       <h2>{title}</h2>
       <h3>{subtitle}</h3>
-      <figure>
-        <img src="http://placekitten.com/300/200" alt=""></img>
-      </figure>
       <h4>Zutaten</h4>
       <table>
+        <tbody>
         {ingredients.map(
           ({amount, unit, ingredient}) => (
           <tr>
@@ -27,6 +29,7 @@ export default function RecipeCard({recipeData, ...props}){
           </tr>
         )
         )}
+        </tbody>
       </table>
       <h4>Zubereitung</h4>
       <ol>
@@ -55,4 +58,18 @@ export default function RecipeCard({recipeData, ...props}){
 
 const RecipeCardWrap = styled.article`
   border: 1px solid #ff00ff;
+`
+
+const RecipeImage = styled.figure`
+  width:100%;
+  height: 0;
+  padding:0;
+  margin:0;
+  padding-bottom:60%;
+  overflow:hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `
