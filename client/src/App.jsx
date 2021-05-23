@@ -9,7 +9,7 @@ export default function App() {
   return (
     <AppGrid>
       <AppHeader>
-       Hallo
+       ♡ GutBuddy
       </AppHeader>
       <ContentMain>
         <p>huhu!</p>
