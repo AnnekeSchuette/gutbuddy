@@ -1,7 +1,8 @@
 import styled from 'styled-components/macro'
+import {Link} from 'react-router-dom'
 
-export default function RecipeCard({recipeData, ...props}){
-  const { title, subtitle, imageFile, ingredients, additional, preparationSteps} = recipeData
+export default function RecipeCard({recipeData, onRecipeClick, ...props}){
+  const { title, slug, subtitle, imageFile, ingredients, additional, preparationSteps} = recipeData
   const [{temperature}, {unit}, {preheat}, {mode}] = recipeData.oven
   /* const ingredients = recipeData.ingredients
   const preparationSteps = recipeData.preparationSteps
@@ -9,6 +10,7 @@ export default function RecipeCard({recipeData, ...props}){
   const categories = recipeData.categories
   const tags = recipeData.tags */
   //const imgPath = `./images/${imageFile}`
+  const detailLink = `/recipes/detail/${slug}`
 
   return (
     <RecipeCardWrap {...props}>
@@ -16,7 +18,7 @@ export default function RecipeCard({recipeData, ...props}){
         <img src={"./images/" + imageFile} alt=""></img>
       </RecipeImage>
       <RecipeContent>
-      <h2>{title}</h2>
+      <Link to={detailLink} onClick={() => onRecipeClick(recipeData)}><h2>{title}</h2></Link>
       <h3>{subtitle}</h3>
       <h4>Zutaten</h4>
       <table>
@@ -45,7 +47,7 @@ export default function RecipeCard({recipeData, ...props}){
       <ul>
         <li>{temperature} {unit}</li>
         <li>{preheat ? 'ja' : 'nein'}</li>
-        <li>{mode}</li>
+        <li>{mode}</li>1
       </ul>
       </RecipeContent>
     </RecipeCardWrap>

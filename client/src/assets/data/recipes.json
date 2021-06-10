@@ -3,6 +3,7 @@
     "$oid": "60a83008441a875edc5883d8"
   },
   "title": "Fluffiger Pizzateig",
+  "slug": "fluffiger-pizzateig",
   "subtitle": "low carb und glutenfrei",
   "imageFile": "Pizza_lc_glutenfree_01.jpg",
   "ingredients": [
@@ -84,8 +85,9 @@
   "_id": {
     "$oid": "60a8355f11c4d651f955e1b2"
   },
-  "title": "Low Carb Müsli – Crunch Topping",
-  "subtitle": "low carb und glutenfrei",
+  "title": "Paleo Müsli / Granola",
+  "slug": "paleo-muesli-granola",
+  "subtitle": "Crunch Topping, low carb und glutenfrei",
   "imageFile": "Müsli_Blaubeer_Nuss-Topping.jpg",
   "ingredients": [
     {
