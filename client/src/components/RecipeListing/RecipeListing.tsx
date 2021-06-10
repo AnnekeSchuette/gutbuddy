@@ -1,9 +1,10 @@
 import styled from 'styled-components/macro'
+import { RecipeObject } from '../../interfaces'
 import RecipeCard from '../RecipeCard/RecipeCard'
 
-export default function RecipeListing({recipeData, onRecipeClick}): JSX.Element {
-  const recipes: object[] = recipeData.map((recipe): JSX.Element => (
-    <RecipeCard onRecipeClick={() => onRecipeClick} recipeData={recipe} key={(recipe.title).replace(/\s/g, "")} />
+export default function RecipeListing({recipeData}: any, {onRecipeClick}: any): JSX.Element {
+  const recipes = recipeData.map((recipe: RecipeObject): JSX.Element => (
+    <RecipeCard onRecipeClick={() => onRecipeClick} recipeData={recipe} key={(recipe.slug)} />
   ))
 
   return (

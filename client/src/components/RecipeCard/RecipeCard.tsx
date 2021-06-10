@@ -1,7 +1,8 @@
 import styled from 'styled-components/macro'
 import {Link} from 'react-router-dom'
+import { Additional, Ingredient } from '../../interfaces'
 
-export default function RecipeCard({recipeData, onRecipeClick, ...props}){
+export default function RecipeCard({recipeData, onRecipeClick, ...props}: any): JSX.Element{
   const { title, slug, subtitle, imageFile, ingredients, additional, preparationSteps} = recipeData
   const [{temperature}, {unit}, {preheat}, {mode}] = recipeData.oven
   /* const ingredients = recipeData.ingredients
@@ -24,8 +25,8 @@ export default function RecipeCard({recipeData, onRecipeClick, ...props}){
       <table>
         <tbody>
         {ingredients.map(
-          ({amount, unit, ingredient}) => (
-          <tr>
+          ({amount, unit, ingredient}: Ingredient, index: number) => (
+          <tr key={ingredient+index}>
             <td>{amount}</td>
             <td>{unit}</td>
             <td>{ingredient}</td>
@@ -37,12 +38,12 @@ export default function RecipeCard({recipeData, onRecipeClick, ...props}){
       <h4>Zubereitung</h4>
       <ol>
         {preparationSteps.map(
-          prepStep => <li>{prepStep}</li>
+          (prepStep: string, index:number) => <li key={"step"+index}>{prepStep}</li>
         )}
       </ol>
       <h4>Infos</h4>
       <ul>
-        {additional.map(data => renderAllAdditionalInfo(data))}
+        {additional.map((data: Additional) => renderAllAdditionalInfo(data))}
       </ul>
       <ul>
         <li>{temperature} {unit}</li>
@@ -53,9 +54,9 @@ export default function RecipeCard({recipeData, onRecipeClick, ...props}){
     </RecipeCardWrap>
   )
 
-  function renderAllAdditionalInfo(data){
+  function renderAllAdditionalInfo(data: Additional): JSX.Element | undefined{
     for (const [key, value] of Object.entries(data)) {
-      return <li>{key}: {value}</li>
+      return <li key={key+value}>{key}: {value}</li>
     }
   }
 }

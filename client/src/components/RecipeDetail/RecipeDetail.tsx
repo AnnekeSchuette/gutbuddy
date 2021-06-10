@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import {useLocation} from 'react-router-dom'
+import { Ingredient } from '../../interfaces'
 
 export default function RecipeDetail({currentRecipe}: any){
   const [title, subtitle, imageFile, ingredients, additional, preparationSteps] = currentRecipe
@@ -31,7 +32,7 @@ export default function RecipeDetail({currentRecipe}: any){
       <table>
         <tbody>
         {ingredients.map(
-          ({amount, unit, ingredient}) => (
+          ({amount, unit, ingredient}: Ingredient) => (
           <tr>
             <td>{amount}</td>
             <td>{unit}</td>
@@ -44,12 +45,12 @@ export default function RecipeDetail({currentRecipe}: any){
       <h4>Zubereitung</h4>
       <ol>
         {preparationSteps.map(
-          prepStep => <li>{prepStep}</li>
+          (prepStep: string) => <li>{prepStep}</li>
         )}
       </ol>
       <h4>Infos</h4>
       <ul>
-        {additional.map(data => renderAllAdditionalInfo(data))}
+        {additional.map((data: number) => renderAllAdditionalInfo(data))}
       </ul>
       <ul>
         <li>{temperature} {unit}</li>
@@ -60,9 +61,9 @@ export default function RecipeDetail({currentRecipe}: any){
     </RecipeDetailWrap>
   )
 
-  function renderAllAdditionalInfo(data){
+  function renderAllAdditionalInfo(data: number){
     for (const [key, value] of Object.entries(data)) {
-      return <li>{key}: {value}</li>
+      return <li key={key+value}>{key}: {value}</li>
     }
   }
 }

@@ -5,12 +5,12 @@ import RecipeListing from './components/RecipeListing/RecipeListing'
 import { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import RecipeDetail from './components/RecipeDetail/RecipeDetail'
-import { RecipeData } from './interfaces'
+import { RecipeObject } from './interfaces'
 
-export default function App() {
+export default function App(): JSX.Element {
   const pages = [{title: "Cookbook", path: "/"}, {title: "Create", path: "/create-recipe"},{title: "Recipes", path: "/recipes"}]
 
-  const [currentRecipe, setCurrentRecipe] = useState<RecipeData>()
+  const [currentRecipe, setCurrentRecipe] = useState<RecipeObject>()
 
   return (
     <AppGrid>
@@ -34,7 +34,7 @@ export default function App() {
       <FooterNav pages={pages} />
     </AppGrid>
   )
-  function handleRecipeClick(data: RecipeData){
+  function handleRecipeClick(data: RecipeObject): void{
     return setCurrentRecipe(data)
   }
 }

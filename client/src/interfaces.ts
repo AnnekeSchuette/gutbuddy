@@ -10,36 +10,40 @@ export interface PagesProps {
   children?: ReactNode;
 }
 
-export interface RecipeData {
-  id: { "$oid": string; };
-  title: string;
-  slug: string;
-  subtitle: string;
-  imageFile: string;
-  ingredients: Array<string | Ingredient>;
-  preparationSteps: Array<string>;
-  oven: Array<string | OvenInfo>;
-  additional:  Array<string | AdditionalInfo>;
-  categories: Array<string>;
-  tags: Array<string>;
+export interface Id {
+    $oid: string;
 }
 
 export interface Ingredient {
-  amount: number;
-  unit: string;
-  ingredient: string;
+    amount: number;
+    unit: string;
+    ingredient: string;
 }
 
-export interface AdditionalInfo {
-  durationCook: number;
-  durationPrep: number;
-  durationChill: number;
-  durationTotal: number;
+export interface Oven {
+    temperature: number;
+    unit: string;
+    preheat?: boolean;
+    mode: string;
 }
 
-export interface OvenInfo {
-  "temperature": number;
-  "unit": string;
-  "preheat": boolean;
-  "mode": string;
+export interface Additional {
+    durationCook: number;
+    durationPrep?: number;
+    durationChill?: number;
+    durationTotal?: number;
+}
+
+export interface RecipeObject {
+    _id: Id;
+    title: string;
+    slug: string;
+    subtitle: string;
+    imageFile: string;
+    ingredients: Ingredient[];
+    preparationSteps: string[];
+    oven: Oven[];
+    additional: Additional[];
+    categories: string[];
+    tags: string[];
 }
