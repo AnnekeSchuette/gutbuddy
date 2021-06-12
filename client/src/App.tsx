@@ -32,7 +32,7 @@ export default function App(): JSX.Element {
           </Route>
           <Route path="/recipes/detail/:slug">
             <RecipeDetail
-              currentRecipe={currentRecipe}
+              recipeData={currentRecipe}
               onRecipeClick={handleRecipeClick}
             />
           </Route>

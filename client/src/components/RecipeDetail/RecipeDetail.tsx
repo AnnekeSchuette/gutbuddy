@@ -1,77 +1,86 @@
+import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components/macro'
-import { useLocation } from 'react-router-dom'
-import { Ingredient } from '../../interfaces'
+import { Link, useLocation } from 'react-router-dom'
+import { Additional, Ingredient, RecipeObject } from '../../interfaces'
+import BadgeList from '../BadgeList/BadgeList'
 
-export default function RecipeDetail({ currentRecipe }: any) {
-  const [
+export default function RecipeDetail({
+  recipeData,
+  onRecipeClick,
+  ...props
+}: any): JSX.Element {
+  const {
     title,
+    slug,
     subtitle,
     imageFile,
     ingredients,
     additional,
     preparationSteps,
-  ] = currentRecipe
-  const [{ temperature }, { unit }, { preheat }, { mode }] = currentRecipe.oven
-
+    categories,
+    tags,
+  }: RecipeObject = recipeData
+  const [{ temperature }, { unit }, { preheat }, { mode }] = recipeData.oven
   const location = useLocation()
-  const currentPath = location.pathname
-  //const recipe = recipeData.find((recipe) => recipe.slug === currentPath)
-  /* const { title, subtitle, imageFile, ingredients, additional, preparationSteps} = recipe
-  const [{temperature}, {unit}, {preheat}, {mode}] = recipe.oven */
-  console.log(currentPath)
-  //console.log(currentRecipe)
+  console.log(location)
   /* const ingredients = recipeData.ingredients
   const preparationSteps = recipeData.preparationSteps
   const additional = recipeData.additional
-  const categories = recipeData.categories
   const tags = recipeData.tags */
   //const imgPath = `./images/${imageFile}`
 
+  const detailLink = `/recipes/detail/${slug}`
   return (
-    <RecipeDetailWrap>
+    <RecipeCardWrap {...props}>
       <RecipeImage>
         <img src={'./images/' + imageFile} alt=""></img>
       </RecipeImage>
       <RecipeContent>
-        <h2>{title}</h2>
+        <Link to={detailLink} onClick={() => onRecipeClick(recipeData)}>
+          <h2>{title}</h2>
+        </Link>
         <h3>{subtitle}</h3>
+        <BadgeList items={categories} color={'var(--color-green-ish)'} />
+        <BadgeList items={tags} color={'var(--color-peach-joghurt)'} />
         <h4>Zutaten</h4>
         <table>
           <tbody>
-            {ingredients.map(({ amount, unit, ingredient }: Ingredient) => (
-              <tr>
-                <td>{amount}</td>
-                <td>{unit}</td>
-                <td>{ingredient}</td>
-              </tr>
-            ))}
+            {ingredients.map(
+              ({ amount, unit, ingredient }: Ingredient, index: number) => (
+                <tr key={uuidv4()}>
+                  <td>{amount}</td>
+                  <td>{unit}</td>
+                  <td>{ingredient}</td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
         <h4>Zubereitung</h4>
         <ol>
-          {preparationSteps.map((prepStep: string) => (
-            <li>{prepStep}</li>
+          {preparationSteps.map((prepStep: string, index: number) => (
+            <li key={uuidv4()}>{prepStep}</li>
           ))}
         </ol>
         <h4>Infos</h4>
         <ul>
-          {additional.map((data: number) => renderAllAdditionalInfo(data))}
+          {additional.map((data: Additional) => renderAllAdditionalInfo(data))}
         </ul>
         <ul>
           <li>
             {temperature} {unit}
           </li>
           <li>{preheat ? 'ja' : 'nein'}</li>
-          <li>{mode}</li>
+          <li>{mode}</li>1
         </ul>
       </RecipeContent>
-    </RecipeDetailWrap>
+    </RecipeCardWrap>
   )
 
-  function renderAllAdditionalInfo(data: number) {
+  function renderAllAdditionalInfo(data: Additional): JSX.Element | undefined {
     for (const [key, value] of Object.entries(data)) {
       return (
-        <li key={key + value}>
+        <li key={uuidv4()}>
           {key}: {value}
         </li>
       )
@@ -79,7 +88,7 @@ export default function RecipeDetail({ currentRecipe }: any) {
   }
 }
 
-const RecipeDetailWrap = styled.article`
+const RecipeCardWrap = styled.article`
   /* border: 1px solid #ff00ff; */
   border-radius: 5px;
   background-color: #fff;

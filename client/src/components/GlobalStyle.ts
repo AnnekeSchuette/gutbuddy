@@ -11,7 +11,7 @@ export default createGlobalStyle`
 
     --color-background: #e8f2e8;
     --color-green-ish: #a8cca8;
-    --color-peach-joghurt: #a8cca8;
+    --color-peach-joghurt: #ffe8bb;
   }
 
   * {

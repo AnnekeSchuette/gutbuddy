@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components/macro'
 import { RecipeObject } from '../../interfaces'
 import RecipeCard from '../RecipeCard/RecipeCard'
@@ -11,7 +12,7 @@ export default function RecipeListing(
       <RecipeCard
         onRecipeClick={() => onRecipeClick}
         recipeData={recipe}
-        key={recipe.slug}
+        key={uuidv4()}
       />
     )
   )

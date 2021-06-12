@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
 import { Additional, Ingredient, RecipeObject } from '../../interfaces'
@@ -20,14 +21,8 @@ export default function RecipeCard({
     tags,
   }: RecipeObject = recipeData
   const [{ temperature }, { unit }, { preheat }, { mode }] = recipeData.oven
-
-  /* const ingredients = recipeData.ingredients
-  const preparationSteps = recipeData.preparationSteps
-  const additional = recipeData.additional
-  const tags = recipeData.tags */
-  //const imgPath = `./images/${imageFile}`
-
   const detailLink = `/recipes/detail/${slug}`
+
   return (
     <RecipeCardWrap {...props}>
       <RecipeImage>
@@ -39,13 +34,13 @@ export default function RecipeCard({
         </Link>
         <h3>{subtitle}</h3>
         <BadgeList items={categories} color={'var(--color-green-ish)'} />
-        <BadgeList items={tags} />
+        <BadgeList items={tags} color={'var(--color-peach-joghurt)'} />
         <h4>Zutaten</h4>
         <table>
           <tbody>
             {ingredients.map(
               ({ amount, unit, ingredient }: Ingredient, index: number) => (
-                <tr key={ingredient + index}>
+                <tr key={uuidv4()}>
                   <td>{amount}</td>
                   <td>{unit}</td>
                   <td>{ingredient}</td>
@@ -57,7 +52,7 @@ export default function RecipeCard({
         <h4>Zubereitung</h4>
         <ol>
           {preparationSteps.map((prepStep: string, index: number) => (
-            <li key={'step' + index}>{prepStep}</li>
+            <li key={uuidv4()}>{prepStep}</li>
           ))}
         </ol>
         <h4>Infos</h4>
@@ -78,7 +73,7 @@ export default function RecipeCard({
   function renderAllAdditionalInfo(data: Additional): JSX.Element | undefined {
     for (const [key, value] of Object.entries(data)) {
       return (
-        <li key={key + value}>
+        <li key={uuidv4()}>
           {key}: {value}
         </li>
       )
