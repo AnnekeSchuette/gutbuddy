@@ -1,169 +1,158 @@
-[{
-  "_id": {
-    "$oid": "60a83008441a875edc5883d8"
+[
+  {
+    "_id": {
+      "$oid": "60a83008441a875edc5883d8"
+    },
+    "title": "Fluffiger Pizzateig",
+    "slug": "fluffiger-pizzateig",
+    "subtitle": "low carb und glutenfrei",
+    "imageFile": "Pizza_lc_glutenfree_01.jpg",
+    "ingredients": [
+      {
+        "amount": 45,
+        "unit": "g",
+        "ingredient": "Goldleinsamenmehl"
+      },
+      {
+        "amount": 45,
+        "unit": "g",
+        "ingredient": "Mandelmehl (entölt)"
+      },
+      {
+        "amount": 5,
+        "unit": "g",
+        "ingredient": "Bambusfaser"
+      },
+      {
+        "amount": 150,
+        "unit": "ml",
+        "ingredient": "Wasser"
+      },
+      {
+        "amount": 1,
+        "unit": "St.",
+        "ingredient": "Ei"
+      },
+      {
+        "amount": 1,
+        "unit": "Msp.",
+        "ingredient": "Backpulver"
+      },
+      {
+        "amount": 0.5,
+        "unit": "Pck.",
+        "ingredient": "Trockenhefe"
+      },
+      {
+        "amount": 1,
+        "unit": "Prise",
+        "ingredient": "Salz"
+      }
+    ],
+    "preparationSteps": [
+      "Alle trockenen Zutaten vermischen. Ei hinzugeben und nach unter nach unter Rühren Wasser hinzufügen. Alles zu einem glatten Teig verarbeiten und einen Teiglaib formen. Ggf. Kokosfaser hinzufügen, falls der Teig zu klebrig ist. en Laib für ca. 30 - 60 Minuten an einem warmen Ort gehen lassen.",
+      "Backofen auf 180 °C vorheizen, während der Teig zu einer Pizza ausgerollt wird (ca. 0,5 - 1 cm dick). Für einen fluffigen Rand, Außenkanten einrollen und gut festdrücken. Pizza-Fladen mit eine Gabel ein paar mal einstechen und dann im Backofen für ca. 10 Minuten vorbacken bis aufgegangen ist und eine leichte goldene Färbung hat.",
+      "Danach Backofen auf 220°C hochdrehen, Teig nach Belieben belegen und für weitere 10-15 Minuten backen."
+    ],
+    "oven": [
+      { "temperature": 180 },
+      { "unit": "°C" },
+      { "preheat": true },
+      { "mode": "Ober-/Unterhitze" }
+    ],
+    "additional": [
+      {
+        "durationCook": 25
+      },
+      {
+        "durationPrep": 25
+      },
+      {
+        "durationChill": 60
+      },
+      {
+        "durationTotal": 110
+      }
+    ],
+    "categories": ["Pizza / Pasta"],
+    "tags": ["low carb", "gluten-free", "paleo"]
   },
-  "title": "Fluffiger Pizzateig",
-  "slug": "fluffiger-pizzateig",
-  "subtitle": "low carb und glutenfrei",
-  "imageFile": "Pizza_lc_glutenfree_01.jpg",
-  "ingredients": [
-    {
-      "amount": 45,
-      "unit": "g",
-      "ingredient": "Goldleinsamenmehl"
+  {
+    "_id": {
+      "$oid": "60a8355f11c4d651f955e1b2"
     },
-    {
-      "amount": 45,
-      "unit": "g",
-      "ingredient": "Mandelmehl (entölt)"
-    },
-    {
-      "amount": 5,
-      "unit": "g",
-      "ingredient": "Bambusfaser"
-    },
-    {
-      "amount": 150,
-      "unit": "ml",
-      "ingredient": "Wasser"
-    },
-    {
-      "amount": 1,
-      "unit": "St.",
-      "ingredient": "Ei"
-    },
-    {
-      "amount": 1,
-      "unit": "Msp.",
-      "ingredient": "Backpulver"
-    },
-    {
-      "amount": 0.5,
-      "unit": "Pck.",
-      "ingredient": "Trockenhefe"
-    },
-    {
-      "amount": 1,
-      "unit": "Prise",
-      "ingredient": "Salz"
-    }
-  ],
-  "preparationSteps": [
-    "Alle trockenen Zutaten vermischen. Ei hinzugeben und nach unter nach unter Rühren Wasser hinzufügen. Alles zu einem glatten Teig verarbeiten und einen Teiglaib formen. Ggf. Kokosfaser hinzufügen, falls der Teig zu klebrig ist. en Laib für ca. 30 - 60 Minuten an einem warmen Ort gehen lassen.",
-    "Backofen auf 180 °C vorheizen, während der Teig zu einer Pizza ausgerollt wird (ca. 0,5 - 1 cm dick). Für einen fluffigen Rand, Außenkanten einrollen und gut festdrücken. Pizza-Fladen mit eine Gabel ein paar mal einstechen und dann im Backofen für ca. 10 Minuten vorbacken bis aufgegangen ist und eine leichte goldene Färbung hat.",
-    "Danach Backofen auf 220°C hochdrehen, Teig nach Belieben belegen und für weitere 10-15 Minuten backen."
-  ],
-  "oven": [
-    {"temperature": 180},
-    {"unit": "°C"},
-    {"preheat": true},
-    {"mode": "Ober-/Unterhitze"}
-  ],
-  "additional": [
-    {
-      "durationCook": 25
-    },
-    {
-      "durationPrep": 25
-    },
-    {
-      "durationChill": 60
-    },
-    {
-      "durationTotal": 110
-    }
-  ],
-  "categories": [
-    "Pizza / Pasta"
-  ],
-  "tags": [
-    "low carb",
-    "gluten-free",
-    "paleo"
-  ]
-},{
-  "_id": {
-    "$oid": "60a8355f11c4d651f955e1b2"
-  },
-  "title": "Paleo Müsli / Granola",
-  "slug": "paleo-muesli-granola",
-  "subtitle": "Crunch Topping, low carb und glutenfrei",
-  "imageFile": "Müsli_Blaubeer_Nuss-Topping.jpg",
-  "ingredients": [
-    {
-      "amount": 45,
-      "unit": "g",
-      "ingredient": "Goldleinsamenmehl"
-    },
-    {
-      "amount": 45,
-      "unit": "g",
-      "ingredient": "Mandelmehl (entölt)"
-    },
-    {
-      "amount": 5,
-      "unit": "g",
-      "ingredient": "Bambusfaser"
-    },
-    {
-      "amount": 150,
-      "unit": "ml",
-      "ingredient": "Wasser"
-    },
-    {
-      "amount": 1,
-      "unit": "St.",
-      "ingredient": "Ei"
-    },
-    {
-      "amount": 1,
-      "unit": "Msp.",
-      "ingredient": "Backpulver"
-    },
-    {
-      "amount": 0.5,
-      "unit": "Pck.",
-      "ingredient": "Trockenhefe"
-    },
-    {
-      "amount": 1,
-      "unit": "Prise",
-      "ingredient": "Salz"
-    }
-  ],
-  "preparationSteps": [
-    "Alle trockenen Zutaten vermischen. Ei hinzugeben und nach unter nach unter Rühren Wasser hinzufügen. Alles zu einem glatten Teig verarbeiten und einen Teiglaib formen. Ggf. Kokosfaser hinzufügen, falls der Teig zu klebrig ist. en Laib für ca. 30 - 60 Minuten an einem warmen Ort gehen lassen.",
-    "Backofen auf 180 °C vorheizen, während der Teig zu einer Pizza ausgerollt wird (ca. 0,5 - 1 cm dick). Für einen fluffigen Rand, Außenkanten einrollen und gut festdrücken. Pizza-Fladen mit eine Gabel ein paar mal einstechen und dann im Backofen für ca. 10 Minuten vorbacken bis aufgegangen ist und eine leichte goldene Färbung hat.",
-    "Danach Backofen auf 220°C hochdrehen, Teig nach Belieben belegen und für weitere 10-15 Minuten backen."
-  ],
-  "oven": [
-    {"temperature": 180},
-    {"unit": "°C"},
-    {"preheat": true},
-    {"mode": "Ober-/Unterhitze"}
-  ],
-  "additional": [
-    {
-      "durationCook": 25
-    },
-    {
-      "durationPrep": 25
-    },
-    {
-      "durationChill": 60
-    },
-    {
-      "durationTotal": 110
-    }
-  ],
-  "categories": [
-    "Frühstück",
-    "Granola"
-  ],
-  "tags": [
-    "low carb",
-    "gluten-free",
-    "paleo",
-    "sugar free"
-  ]
-}]
+    "title": "Paleo Müsli / Granola",
+    "slug": "paleo-muesli-granola",
+    "subtitle": "Crunch Topping, low carb und glutenfrei",
+    "imageFile": "Müsli_Blaubeer_Nuss-Topping.jpg",
+    "ingredients": [
+      {
+        "amount": 45,
+        "unit": "g",
+        "ingredient": "Goldleinsamenmehl"
+      },
+      {
+        "amount": 45,
+        "unit": "g",
+        "ingredient": "Mandelmehl (entölt)"
+      },
+      {
+        "amount": 5,
+        "unit": "g",
+        "ingredient": "Bambusfaser"
+      },
+      {
+        "amount": 150,
+        "unit": "ml",
+        "ingredient": "Wasser"
+      },
+      {
+        "amount": 1,
+        "unit": "St.",
+        "ingredient": "Ei"
+      },
+      {
+        "amount": 1,
+        "unit": "Msp.",
+        "ingredient": "Backpulver"
+      },
+      {
+        "amount": 0.5,
+        "unit": "Pck.",
+        "ingredient": "Trockenhefe"
+      },
+      {
+        "amount": 1,
+        "unit": "Prise",
+        "ingredient": "Salz"
+      }
+    ],
+    "preparationSteps": [
+      "Alle trockenen Zutaten vermischen. Ei hinzugeben und nach unter nach unter Rühren Wasser hinzufügen. Alles zu einem glatten Teig verarbeiten und einen Teiglaib formen. Ggf. Kokosfaser hinzufügen, falls der Teig zu klebrig ist. en Laib für ca. 30 - 60 Minuten an einem warmen Ort gehen lassen.",
+      "Backofen auf 180 °C vorheizen, während der Teig zu einer Pizza ausgerollt wird (ca. 0,5 - 1 cm dick). Für einen fluffigen Rand, Außenkanten einrollen und gut festdrücken. Pizza-Fladen mit eine Gabel ein paar mal einstechen und dann im Backofen für ca. 10 Minuten vorbacken bis aufgegangen ist und eine leichte goldene Färbung hat.",
+      "Danach Backofen auf 220°C hochdrehen, Teig nach Belieben belegen und für weitere 10-15 Minuten backen."
+    ],
+    "oven": [
+      { "temperature": 180 },
+      { "unit": "°C" },
+      { "preheat": true },
+      { "mode": "Ober-/Unterhitze" }
+    ],
+    "additional": [
+      {
+        "durationCook": 25
+      },
+      {
+        "durationPrep": 25
+      },
+      {
+        "durationChill": 60
+      },
+      {
+        "durationTotal": 110
+      }
+    ],
+    "categories": ["Frühstück", "Granola"],
+    "tags": ["low carb", "gluten-free", "paleo", "sugar free"]
+  }
+]

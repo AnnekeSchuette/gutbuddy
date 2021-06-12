@@ -1,9 +1,3 @@
-
-
 export default function Header() {
-  return (
-    <div>
-      Moin
-    </div>
-  )
+  return <div>Moin</div>
 }

@@ -8,23 +8,33 @@ import RecipeDetail from './components/RecipeDetail/RecipeDetail'
 import { RecipeObject } from './interfaces'
 
 export default function App(): JSX.Element {
-  const pages = [{title: "Cookbook", path: "/"}, {title: "Create", path: "/create-recipe"},{title: "Recipes", path: "/recipes"}]
+  const pages = [
+    { title: 'Cookbook', path: '/' },
+    { title: 'Create', path: '/create-recipe' },
+    { title: 'Recipes', path: '/recipes' },
+  ]
 
   const [currentRecipe, setCurrentRecipe] = useState<RecipeObject>()
 
   return (
     <AppGrid>
-      <AppHeader>
-       ♡ GutBuddy
-      </AppHeader>
+      <AppHeader>♡ GutBuddy</AppHeader>
       <ContentMain>
         <Switch>
-          <Route exact path="/create-recipe">Create</Route>
+          <Route exact path="/create-recipe">
+            Create
+          </Route>
           <Route exact path="/recipes">
-            <RecipeListing recipeData={recipeData} onRecipeClick={handleRecipeClick}/>
+            <RecipeListing
+              recipeData={recipeData}
+              onRecipeClick={handleRecipeClick}
+            />
           </Route>
           <Route path="/recipes/detail/:slug">
-            <RecipeDetail currentRecipe={currentRecipe} onRecipeClick={handleRecipeClick}/>
+            <RecipeDetail
+              currentRecipe={currentRecipe}
+              onRecipeClick={handleRecipeClick}
+            />
           </Route>
           <Route exact path="/">
             Cook Book
@@ -34,7 +44,7 @@ export default function App(): JSX.Element {
       <FooterNav pages={pages} />
     </AppGrid>
   )
-  function handleRecipeClick(data: RecipeObject): void{
+  function handleRecipeClick(data: RecipeObject): void {
     return setCurrentRecipe(data)
   }
 }
@@ -42,7 +52,7 @@ export default function App(): JSX.Element {
 const AppGrid = styled.div`
   display: grid;
   grid-template-rows: 45px auto 45px;
-  height:100vh;
+  height: 100vh;
 `
 const AppHeader = styled.header`
   height: 45px;
@@ -56,8 +66,7 @@ const AppHeader = styled.header`
 `
 const ContentMain = styled.main`
   height: calc(100vh - 90px);
-  overflow-y:scroll;
-  padding:0 20px;
-  background:#e8f2e8;
+  overflow-y: scroll;
+  padding: 0 20px;
+  background: #e8f2e8;
 `
-

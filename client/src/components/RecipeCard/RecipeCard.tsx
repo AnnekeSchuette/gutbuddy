@@ -1,62 +1,87 @@
 import styled from 'styled-components/macro'
-import {Link} from 'react-router-dom'
-import { Additional, Ingredient } from '../../interfaces'
+import { Link } from 'react-router-dom'
+import { Additional, Ingredient, RecipeObject } from '../../interfaces'
+import BadgeList from '../BadgeList/BadgeList'
 
-export default function RecipeCard({recipeData, onRecipeClick, ...props}: any): JSX.Element{
-  const { title, slug, subtitle, imageFile, ingredients, additional, preparationSteps} = recipeData
-  const [{temperature}, {unit}, {preheat}, {mode}] = recipeData.oven
+export default function RecipeCard({
+  recipeData,
+  onRecipeClick,
+  ...props
+}: any): JSX.Element {
+  const {
+    title,
+    slug,
+    subtitle,
+    imageFile,
+    ingredients,
+    additional,
+    preparationSteps,
+    categories,
+    tags,
+  }: RecipeObject = recipeData
+  const [{ temperature }, { unit }, { preheat }, { mode }] = recipeData.oven
+
   /* const ingredients = recipeData.ingredients
   const preparationSteps = recipeData.preparationSteps
   const additional = recipeData.additional
-  const categories = recipeData.categories
   const tags = recipeData.tags */
   //const imgPath = `./images/${imageFile}`
-  const detailLink = `/recipes/detail/${slug}`
 
+  const detailLink = `/recipes/detail/${slug}`
   return (
     <RecipeCardWrap {...props}>
       <RecipeImage>
-        <img src={"./images/" + imageFile} alt=""></img>
+        <img src={'./images/' + imageFile} alt=""></img>
       </RecipeImage>
       <RecipeContent>
-      <Link to={detailLink} onClick={() => onRecipeClick(recipeData)}><h2>{title}</h2></Link>
-      <h3>{subtitle}</h3>
-      <h4>Zutaten</h4>
-      <table>
-        <tbody>
-        {ingredients.map(
-          ({amount, unit, ingredient}: Ingredient, index: number) => (
-          <tr key={ingredient+index}>
-            <td>{amount}</td>
-            <td>{unit}</td>
-            <td>{ingredient}</td>
-          </tr>
-        )
-        )}
-        </tbody>
-      </table>
-      <h4>Zubereitung</h4>
-      <ol>
-        {preparationSteps.map(
-          (prepStep: string, index:number) => <li key={"step"+index}>{prepStep}</li>
-        )}
-      </ol>
-      <h4>Infos</h4>
-      <ul>
-        {additional.map((data: Additional) => renderAllAdditionalInfo(data))}
-      </ul>
-      <ul>
-        <li>{temperature} {unit}</li>
-        <li>{preheat ? 'ja' : 'nein'}</li>
-        <li>{mode}</li>1
-      </ul>
+        <Link to={detailLink} onClick={() => onRecipeClick(recipeData)}>
+          <h2>{title}</h2>
+        </Link>
+        <h3>{subtitle}</h3>
+        <BadgeList items={categories} color={'var(--color-green-ish)'} />
+        <BadgeList items={tags} />
+        <h4>Zutaten</h4>
+        <table>
+          <tbody>
+            {ingredients.map(
+              ({ amount, unit, ingredient }: Ingredient, index: number) => (
+                <tr key={ingredient + index}>
+                  <td>{amount}</td>
+                  <td>{unit}</td>
+                  <td>{ingredient}</td>
+                </tr>
+              )
+            )}
+          </tbody>
+        </table>
+        <h4>Zubereitung</h4>
+        <ol>
+          {preparationSteps.map((prepStep: string, index: number) => (
+            <li key={'step' + index}>{prepStep}</li>
+          ))}
+        </ol>
+        <h4>Infos</h4>
+        <ul>
+          {additional.map((data: Additional) => renderAllAdditionalInfo(data))}
+        </ul>
+        <ul>
+          <li>
+            {temperature} {unit}
+          </li>
+          <li>{preheat ? 'ja' : 'nein'}</li>
+          <li>{mode}</li>1
+        </ul>
       </RecipeContent>
     </RecipeCardWrap>
   )
 
-  function renderAllAdditionalInfo(data: Additional): JSX.Element | undefined{
+  function renderAllAdditionalInfo(data: Additional): JSX.Element | undefined {
     for (const [key, value] of Object.entries(data)) {
-      return <li key={key+value}>{key}: {value}</li>
+      return (
+        <li key={key + value}>
+          {key}: {value}
+        </li>
+      )
     }
   }
 }
@@ -69,12 +94,12 @@ const RecipeCardWrap = styled.article`
 `
 
 const RecipeImage = styled.figure`
-  width:100%;
+  width: 100%;
   height: 0;
-  padding:0;
-  margin:0;
-  padding-bottom:60%;
-  overflow:hidden;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 60%;
+  overflow: hidden;
 
   img {
     width: 100%;
