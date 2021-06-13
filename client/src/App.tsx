@@ -2,10 +2,9 @@ import styled from 'styled-components/macro'
 import recipeData from './assets/data/recipes.json'
 import FooterNav from './components/FooterNav/FooterNav'
 import RecipeListing from './components/RecipeListing/RecipeListing'
-import { useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import RecipeDetail from './components/RecipeDetail/RecipeDetail'
-import { RecipeObject } from './interfaces'
+import useLocalStorage from './hooks/useLocalStorage'
 
 export default function App(): JSX.Element {
   const pages = [
@@ -13,8 +12,12 @@ export default function App(): JSX.Element {
     { title: 'Create', path: '/create-recipe' },
     { title: 'Recipes', path: '/recipes' },
   ]
+  const history = useHistory()
 
-  const [currentRecipe, setCurrentRecipe] = useState<RecipeObject>()
+  const [currentRecipe, setCurrentRecipe] = useLocalStorage(
+    'currentRecipeId',
+    []
+  )
 
   return (
     <AppGrid>
@@ -32,7 +35,8 @@ export default function App(): JSX.Element {
           </Route>
           <Route path="/recipes/detail/:slug">
             <RecipeDetail
-              recipeData={currentRecipe}
+              recipeData={recipeData}
+              currentRecipe={currentRecipe}
               onRecipeClick={handleRecipeClick}
             />
           </Route>
@@ -44,8 +48,12 @@ export default function App(): JSX.Element {
       <FooterNav pages={pages} />
     </AppGrid>
   )
-  function handleRecipeClick(data: RecipeObject): void {
-    return setCurrentRecipe(data)
+  function handleRecipeClick(id: string, slug: string): void {
+    history.push(`/recipes/detail/${slug}`)
+    const currentRecipeObject = recipeData.filter(
+      (recipe) => recipe._id.$oid === id
+    )
+    return setCurrentRecipe(currentRecipeObject)
   }
 }
 

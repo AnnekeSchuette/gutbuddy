@@ -4,13 +4,13 @@ import { RecipeObject } from '../../interfaces'
 import RecipeCard from '../RecipeCard/RecipeCard'
 
 export default function RecipeListing(
-  { recipeData }: any,
-  { onRecipeClick }: any
+  {recipeData,
+  onRecipeClick}: any
 ): JSX.Element {
   const recipes = recipeData.map(
     (recipe: RecipeObject): JSX.Element => (
       <RecipeCard
-        onRecipeClick={() => onRecipeClick}
+        onRecipeClick={onRecipeClick}
         recipeData={recipe}
         key={uuidv4()}
       />
